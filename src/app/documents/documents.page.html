@@ -1,0 +1,193 @@
+<ion-header>
+  <ion-toolbar color="secondary" style="text-align: right;">
+  
+    <ion-icon name="chevron-back-outline" style="margin-right: 250px;font-size: 20px;color:white"
+    routerLink="/name"></ion-icon>
+      
+    <ion-icon name="settings-outline" style="font-size: 20px;color: white;" routerLink="/settings">
+    </ion-icon>&nbsp;
+      
+    <ion-icon name="help-circle-outline" style="font-size: 22px;color: white;" routerLink="/help2">
+    </ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formcontrol" (ngSubmit)="getreg()">
+
+<div class="container">
+
+  <h4>Required Documents</h4><br>
+  <!--<ion-button (click)="presentActionSheet()" class="button">Open Action Sheet</ion-button>-->
+  <form action="/action_page.php">
+  <li style="font-size: 16px;">PAN Card (Mandatory)</li>
+  <ion-input type="file" id="myFile" name="filename">Upload File</ion-input>
+  
+  <h5>Upload Any one these documents</h5>
+  <li style="font-size: 16px;">Adhar</li>
+  <ion-input type="file" id="choose from gallery" name="filename">Upload File</ion-input>
+
+  <li style="font-size: 16px;">Votar-id</li>
+  <ion-input type="file" id="myFile" name="filename">Upload File</ion-input>
+
+  <li style="font-size: 16px;">DL</li>
+  <ion-input type="file" id="myFile" name="filename">Upload File</ion-input>
+
+  <li style="font-size: 16px;">Passport</li>
+  <ion-input type="file" id="myFile" name="filename">Upload File</ion-input>
+  </form>
+  <br>
+
+
+  <h5>Bank details</h5>
+    <br>
+    <ion-label style="font-size: 15px;">Account Holder Name</ion-label>
+    <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" 
+     type="text" formControlName="accname"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.accname.errors?.required">
+      AccountName is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.accname.errors?.minlength">
+      AccountName should be min 2 chars long.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.accname.errors?.pattern">
+      Only characters to be allowed.
+    </span>
+    <br>
+    <ion-label style="font-size: 15px;">Bank Name</ion-label>
+    <ion-item>
+      <ion-input style="font-size: 13px;font-weight: 600;" formControlName="bankname"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.bankname.errors?.required">
+      bankname is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.bankname.errors?.minlength">
+      bankname should be min 2 chars long.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.bankname.errors?.pattern">
+      Only characters to be allowed.
+    </span>
+    <br>
+
+    <ion-label style="font-size: 15px;">Account Number</ion-label>
+    <ion-item>
+      <ion-input style="font-size: 13px;font-weight: 600;" type="text" formControlName="accno"
+      type="number"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.accno.errors?.required">
+      Account number is required.
+    </span>
+    
+
+    <h5>Reference any 3 Family Members</h5>
+  <br>
+  <p style="margin-left: 10px;">Mandatory Feilds</p>
+  <ion-item>
+  <ion-input style="font-size: 13px;font-weight: 600;" 
+  placeholder="Father Name" type="text" formControlName="fatname"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.fatname.errors?.required">
+    Father Name is required.
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.fatname.errors?.minlength">
+    Father Name should be min 2 chars long.
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.fatname.errors?.pattern">
+    Only characters to be allowed.
+  </span>
+
+  <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" 
+    placeholder="Mobile Number" formControlName="mobile" type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
+    Mobile number is required.
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern">
+    Please enter 10 digit phone number
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.maxLength">
+ mobile number not valid </span>
+ <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.minLength">
+  Please enter 10 digit phone number
+   </span>
+  <br>
+
+  <ion-item>
+  <ion-input style="font-size: 13px;font-weight: 600;" 
+  placeholder="Mother Name" formControlName="motname"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.motname.errors?.required">
+    Mother Name is required.
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.motname.errors?.minlength">
+    Mother Name should be min 2 chars long.
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.motname.errors?.pattern">
+    Only characters to be allowed.
+  </span>
+
+  <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" 
+    placeholder="Mobile Number" formControlName="mobile1" type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile1.errors?.required">
+    Mobile number is required.
+  </span>
+ <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile1.errors?.pattern">
+    Please enter 10 digit phone number
+  </span>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile1.errors?.maxLength">
+ mobile number not valid </span>
+ <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile1.errors?.minLength">
+  Please enter 10 digit phone number
+   </span>
+  <br>
+
+<p style="margin-left: 10px;">Optional fields</p>
+  <ion-item>
+  <ion-input style="font-size: 13px;font-weight: 600;" type="text" 
+  placeholder="Sister Name" pattern="[A-Za-z]"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" 
+    placeholder="Mobile Number" type="number" inputmode="numeric" 
+    minlength="10" maxlength="10" pattern="[0-9]{11}"></ion-input>
+  </ion-item>
+  <br>
+
+  <ion-item>
+  <ion-input style="font-size: 13px;font-weight: 600;" type="text" 
+  placeholder="Brother Name" pattern="[A-Za-z]"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+  <ion-input style="font-size: 13px;font-weight: 600;" 
+    placeholder="Mobile Number" type="number" inputmode="numeric" 
+    minlength="10" maxlength="10" pattern="[789][0-9]{9}"
+    required="required"></ion-input>
+  </ion-item>
+  <br>
+
+  </div>
+
+  <div class="container" style="text-align: right;" class="ion-text-end">
+     
+    <button class="button warning"> 
+    <ion-row>
+    <ion-col>
+    <p style="font-weight: bold;font-family: Calibri;font-size: 15px;" >Submit</p></ion-col>
+    <ion-col size="3">
+      <ion-icon name="chevron-forward-outline" style="font-size: 15px;font-weight: bold;color: black;">
+    </ion-icon>
+    </ion-col>
+  </ion-row></button>
+   </div>
+   </form>
+
+
+</ion-content>

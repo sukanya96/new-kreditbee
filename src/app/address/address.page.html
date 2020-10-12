@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="secondary" style="text-align: right;">
+  
+    <ion-icon name="chevron-back-outline" style="margin-right: 250px;font-size: 20px;color:white"
+    routerLink="/dob"></ion-icon>
+      
+    <ion-icon name="settings-outline" style="font-size: 20px;color: white;" routerLink="/settings">
+    </ion-icon>&nbsp;
+      
+    <ion-icon name="help-circle-outline" style="font-size: 22px;color: white;" routerLink="/help2">
+    </ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <h5 style="margin-left: 10px;">Address</h5>
+  <ion-grid>
+    <ion-row>
+    <ion-col size="1">
+    <ion-icon name="location" style="font-size: 22px;margin-top: 16px;color: skyblue;"></ion-icon>
+    </ion-col>
+    <ion-col>
+    <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" placeholder="&nbsp;Present address(as per Id-proof)"
+    inputmode="text" required>
+    </ion-input>
+    </ion-item>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="1">
+    <ion-icon name="location" style="font-size: 22px;margin-top: 16px;color: skyblue;"></ion-icon>
+    </ion-col>
+    <ion-col>
+    <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" placeholder="&nbsp;Permanent address(as per Adharcard)"
+    inputmode="text" required>
+    </ion-input>
+    </ion-item>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <br>
+  <div class="container" class="ion-text-end">
+    <button class="button warning" routerLink="/privacy">
+    <ion-row>
+    <ion-col>
+    <p style="font-weight: bold;font-family: Calibri;font-size: 15px;">Next</p></ion-col>
+    <ion-col size="3">
+    <ion-icon name="chevron-forward-outline" style="font-size: 18px;font-weight: bold;color: black">
+    </ion-icon>
+    </ion-col>
+    </ion-row></button>
+    </div>
+
+</ion-content>

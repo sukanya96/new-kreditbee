@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar color="secondary" style="text-align: right;">
+  
+    <ion-icon name="chevron-back-outline" style="margin-right: 250px;font-size: 20px;color:white"
+    routerLink="/documents"></ion-icon>
+      
+    <ion-icon name="settings-outline" style="font-size: 20px;color: white;" routerLink="/settings">
+    </ion-icon>&nbsp;
+      
+    <ion-icon name="help-circle-outline" style="font-size: 22px;color: white;" routerLink="/help2">
+    </ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container">
+  <h5>A processing fee as per guidelines</h5>
+  <li>Loan amount will be greater than 1500 to &nbsp;&nbsp;&nbsp;&nbsp;50k</li>
+  <li>Interest will be there 1% per month</li>
+  <li>Min duration of the loan amount will be &nbsp;&nbsp;&nbsp;&nbsp;7days</li>
+  <li>Max duration of the loan amount will be &nbsp;&nbsp;&nbsp;&nbsp;28days</li>
+  </div>
+
+  <h5 style="margin-left: 10px;">Payment Options</h5>
+
+  <div class="form-check">
+    <ion-item>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optradio" style="color: skyblue;"> PhonePay
+    </label>
+    </ion-item>
+  </div>
+
+  <div class="form-check">
+    <ion-item>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optradio" style="color: skyblue;"> Google Pay
+    </label>
+    </ion-item>
+  </div>
+
+  <div class="form-check">
+    <ion-item>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optradio" style="color: skyblue;"> Paytm
+    </label>
+    </ion-item>
+  </div>
+
+  <div class="form-check">
+    <ion-item>
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optradio" style="color: skyblue;"> Net banking
+    </label>
+    </ion-item>
+  </div>
+  <br>
+
+  <div class="container">
+    <ion-label style="font-size: 15px;color:black;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">GST
+    18% on Processing Fees</ion-label>
+    <ion-item>
+    <ion-input type="number" inputmode="numeric" 
+    style="font-size: 13px;font-weight: 600;" placeholder="&nbsp;&nbsp;GST Amount"></ion-input>
+      </ion-item>
+  </div>
+      
+
+  <div class="container" style="text-align: right;margin-top: 10px;" class="ion-text-end">
+     
+    <button class="button warning" routerLink="/success"> 
+    <ion-row>
+    <ion-col>
+    <p style="font-weight: bold;font-family: Calibri;font-size: 15px;">Submit</p></ion-col>
+    <ion-col size="3">
+      <ion-icon name="chevron-forward-outline" style="font-size: 15px;font-weight: bold;color: black;">
+    </ion-icon>
+    </ion-col>
+  </ion-row></button>
+   </div>
+
+</ion-content>

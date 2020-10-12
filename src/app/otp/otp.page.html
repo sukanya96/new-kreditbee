@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="secondary" style="text-align: right;">
+    <a href="settings" style="color: white;">
+    <ion-icon name="settings-outline" style="font-size: 20px;color: white;"></ion-icon>&nbsp;</a>
+    <a href="help2" style="color: white;">
+    <ion-icon name="help-circle-outline" style="font-size: 22px;margin-right: 10px;color: white;"></ion-icon></a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formcontrol" (ngSubmit)="getreg()">
+
+
+  <br>
+  <div class="container">
+    <p style="font-size: 22px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 10px;">
+      Enter the OTP received on your mobile</p>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+      <ion-icon name="lock-closed-outline" style="font-size: 22px;margin-top: 16px;color: grey;"></ion-icon>
+        </ion-col>
+       <ion-col>
+     <ion-item>
+      <ion-input [type]="password_type" placeholder="Password" name="password" required></ion-input>
+      <ion-icon name="eye" item-right (click)="togglePasswordMode()"></ion-icon>
+     </ion-item>
+     </ion-col>
+     </ion-row>
+     
+     </ion-grid>
+
+    <ion-grid>
+    <ion-row>
+    <ion-col size="1">
+    <ion-icon name="lock-closed-outline" style="font-size: 22px;margin-top: 16px;color: grey;"></ion-icon>
+    </ion-col>
+     <ion-col>
+    <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" formControlName="pincode"
+     type="number"inputmode="numeric" 
+    minlength=6 maxlength=6 placeholder="&nbsp;&nbsp;Mobile OTP"></ion-input>
+    </ion-item>
+
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.required">
+      otp number is required.
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.pattern">
+      otp number not valid
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.maxLength">
+      otp number not valid
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.pincode.errors?.minLength">
+    Please enter 6 digit number
+    </span>
+  
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+   <br>
+  
+   <ion-card>
+    <ion-card-content>
+    <p style="font-size: 12px;font-family: Calibri;color: gray;margin-bottom: 0rem;text-align: justify;font-weight: 600;">
+    <img src="https://icons-for-free.com/iconfiles/png/512/idea+idea+bulb+light+bulb+icon-1320144733751939202.png"
+    style="width: 25px;height: 20px;">
+    Not received OTP? Go back and Register/Login again</p>
+    </ion-card-content>
+    </ion-card>
+    <br><br><br><br>
+    
+      <div class="container" style="text-align: center;">
+        <a href="appln" style="color: black;">
+        <button class="btn warning"
+        style="font-weight: bold;">
+          Submit </button></a>
+       </div>
+      </form>
+       
+</ion-content>
+

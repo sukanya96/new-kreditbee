@@ -1,0 +1,180 @@
+<ion-header >
+  <ion-toolbar color="secondary" style="text-align: right;background-color: slateblue;">
+
+    <ion-icon name="chevron-back-outline" style="margin-right: 250px;font-size: 20px;color: white;"
+    routerLink="/appln">
+    </ion-icon>
+    <ion-icon name="settings-outline" style="font-size: 20px;color:white;" routerLink="/settings">
+    </ion-icon>&nbsp;
+    <ion-icon name="help-circle-outline" style="font-size: 22px;color:white;" routerLink="/help2"></ion-icon>
+    
+  </ion-toolbar>
+</ion-header>
+
+ <ion-content>
+  <form [formGroup]="formcontrol" (ngSubmit)="getreg()">
+ <br>
+  
+    <p style="font-size: 15px;margin-left: 5px;color: black;">
+    Your Name</p>
+    
+
+    <ion-grid>
+      <ion-row>
+      <ion-col size="1">
+      <ion-icon name="person-circle" style="font-size: 22px;margin-top: 16px;color: skyblue;"></ion-icon>
+      </ion-col>
+      <ion-col>
+      <ion-item>
+      <ion-input style="font-size: 13px;font-weight: 600;" placeholder="&nbsp;First Name(Exactly as per Adhar)"
+      formControlName="name" inputmode="text" required>
+      </ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
+        Name is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
+        Name should be min 2 chars long.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.pattern">
+        Only characters to be allowed.
+      </span>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+    
+    <ion-grid>
+      <ion-row>
+      <ion-col size="1">
+      <ion-icon name="people-circle" style="font-size: 22px;margin-top: 16px;color: skyblue;"></ion-icon>
+      </ion-col>
+      <ion-col>
+      <ion-item>
+      <ion-input style="font-size: 13px;font-weight: 600;" placeholder="&nbsp;Last Name(Exactly as per Adhar)"
+      formControlName="lname" inputmode="text" required>
+      </ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lname.errors?.required">
+        Name is required.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lname.errors?.minlength">
+        Name should be min 2 chars long.
+      </span>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lname.errors?.pattern">
+        Only characters to be allowed.
+      </span>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+    <br>
+
+    <ion-grid>
+      <p style="font-size: 15px;color: black;margin-left: 10px;">Date of Birth DD/MM/YYYY </p>
+     <ion-row> 
+        <ion-col size="1">
+         <i class="material-icons" style="font-size: 22px;color:skyblue;margin-top: 16px;">cake</i>
+          </ion-col>
+       <ion-col>
+      <ion-item>
+      <ion-input style="font-size: 15px;font-weight: 600;" >
+      <ion-datetime  formControlName="dob" 
+       displayFormat="DD/MM/YYYY" min="1994-03-14" max="2012-12-09" value="T15:03:46.789"></ion-datetime>
+      </ion-input>
+      </ion-item>
+      <span class="error ion-padding" *ngIf="isSubmitted && errorControl.dob.errors?.required">
+        dob is required.
+      </span>
+      
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+
+   
+    <p style="color: black;margin-left:10px;">Gender</p>
+    <div class="container">
+    <div>
+      <input id="male" type="radio" class="custom-control-input" 
+      value="male" name="gender" formControlName="gender" style="height:18px; width:20px;">
+      <label class="custom-control-label" for="male" 
+      style="font-size: 17px;color: gray;margin-left:5px;margin-bottom: 2px;font-weight: 500;">Male</label>
+   </div>
+
+   <div>
+      <input id="female" type="radio" class="custom-control-input" 
+      value="female" name="gender" formControlName="gender" style="height:18px; width:20px;">
+      <label class="custom-control-label" for="female"
+       style="font-size: 17px;color: gray;margin-left: 5px;margin-bottom: 2px;font-weight: 500;">Female</label>
+   </div>
+   </div>
+
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.gender.errors?.required">
+    Please select either value
+  </span>
+  <br>
+
+    <p style="margin-left: 10px;color: black;font-size: 15px;">Address</p>
+  <ion-grid>
+    <ion-row>
+    <ion-col size="1">
+    <ion-icon name="location" style="font-size: 22px;margin-top: 16px;color: skyblue;"></ion-icon>
+    </ion-col>
+    <ion-col>
+    <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" formControlName="address" placeholder="&nbsp;Present address(as per Id-proof)"
+    inputmode="text" required>
+    </ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.address.errors?.required">
+      address is required.
+    </span>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="1">
+    <ion-icon name="location" style="font-size: 22px;margin-top: 16px;color: skyblue;"></ion-icon>
+    </ion-col>
+    <ion-col>
+    <ion-item>
+    <ion-input style="font-size: 13px;font-weight: 600;" formControlName="address1" placeholder="&nbsp;Permanent address(as per Adharcard)"
+    inputmode="text" required>
+    </ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.address1.errors?.required">
+      address is required.
+    </span>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+    <ion-col size="1">
+
+    <input type="checkbox" class="form-check-input" id="check1" name="option1" 
+    formControlName="accept" value="something" checked>
+
+    </ion-col>
+    <ion-col>
+    <p style="font-size: 14px;color: grey;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: justify;">
+    I agree that my monthly Household Income(including income from all people residing in my house)
+    is greater than ₹ 17000
+    </p>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.accept.errors?.required">
+      Agree the terms and conditions
+    </span>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+    
+    <div class="container" class="ion-text-end">
+    <button class="button warning1" >
+    <p style="font-weight: bold;font-family: Calibri;font-size: 15px;">Submit</p>
+    </button>
+    </div>
+  </form>
+
+</ion-content>
